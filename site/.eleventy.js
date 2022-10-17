@@ -3,6 +3,8 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "../users",
       output: "dist",
+      includes: "../site/_includes",
+      data: "../site/_data",
     },
   };
 };
