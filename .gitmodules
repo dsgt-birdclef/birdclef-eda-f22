@@ -1,0 +1,3 @@
+[submodule "users/acmiyaguchi/vendor/BirdNET"]
+	path = users/acmiyaguchi/vendor/BirdNET
+	url = git@github.com:kahst/BirdNET.git
