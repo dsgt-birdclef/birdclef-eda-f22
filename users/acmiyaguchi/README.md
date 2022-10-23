@@ -43,4 +43,4 @@ docker-compose -f docker/docker-compose.birdnet.yml build
 docker-compose -f docker/docker-compose.birdnet.yml push
 ```
 
-See [2022-10-23-birdnet-exploration](notesbooks/2022-10-23-birdnet-exploration.ipynb) for an interactive introduction into using the docker images.
+See [2022-10-23-birdnet-exploration](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-23-birdnet-exploration.ipynb) for an interactive introduction into using the docker images.
