@@ -44,3 +44,28 @@ docker-compose -f docker/docker-compose.birdnet.yml push
 ```
 
 See [2022-10-23-birdnet-exploration](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-23-birdnet-exploration.ipynb) for an interactive introduction into using the docker images.
+
+### Bird MixIT
+
+#### Building
+
+Building the image is requires a bit more setup. We need to download the model checkpoints [as per the repository instructions](https://github.com/google-research/sound-separation/tree/master/models/bird_mixit):
+
+```bash
+gcloud storage cp -r gs://gresearch/sound_separation/bird_mixit_model_checkpoints data/raw/sound_separation
+```
+
+Then we can build the docker image:
+
+```bash
+docker-compose -f docker/docker-compose.bird-mixit.yml build
+docker-compose -f docker/docker-compose.bird-mixit.yml push
+```
+
+#### Usage
+
+```bash
+docker run --rm \
+    -u $(id -u):$(id -g) \
+    -it us-central1-docker.pkg.dev/birdclef-eda-f22/birdclef-eda-f22/bird-mixit:latest
+```
