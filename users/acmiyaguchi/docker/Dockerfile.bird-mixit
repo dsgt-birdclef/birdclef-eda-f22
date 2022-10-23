@@ -8,5 +8,6 @@ RUN apt-get update && \
 # gcloud storage cp -r gs://gresearch/sound_separation/bird_mixit_model_checkpoints data/raw/sound_separation
 ADD vendor/sound-separation /app
 ADD data/raw/sound_separation/bird_mixit_model_checkpoints /app/checkpoints
+ADD scripts /app/scripts
 
 WORKDIR /app
