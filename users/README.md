@@ -7,3 +7,4 @@ semester.
 - [jinsongzhen](./jinsongzhen)
 - [kientran](./kientran)
 - [siyingliu](./siyingliu)
+- [xinjinli](./xinjinli)
