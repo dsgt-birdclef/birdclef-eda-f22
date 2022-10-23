@@ -26,11 +26,3 @@ repos:
       - id: codespell
         args: [--ignore-words=.dictionary.txt]
         exclude: (package.*.json|.ipynb)$
-  - repo: https://github.com/antonbabenko/pre-commit-terraform
-    rev: v1.76.0
-    hooks:
-      - id: terraform_fmt
-      - id: terraform_providers_lock
-        args:
-          - --args=-platform=windows_amd64
-          - --args=-platform=darwin_amd64
