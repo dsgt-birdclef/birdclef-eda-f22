@@ -2,11 +2,6 @@ version: "3.9"
 services:
   birdnet:
     build:
-      context: ../vendor/BirdNET
+      context: ../vendor/BirdNET-Analyzer
       dockerfile: Dockerfile
     image: us-central1-docker.pkg.dev/birdclef-eda-f22/birdclef-eda-f22/birdnet:latest
-  birdnet-gpu:
-    build:
-      context: ../vendor/BirdNET
-      dockerfile: Dockerfile-GPU
-    image: us-central1-docker.pkg.dev/birdclef-eda-f22/birdclef-eda-f22/birdnet-gpu:latest

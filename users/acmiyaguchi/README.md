@@ -26,9 +26,21 @@ gcloud auth configure-docker us-central1-docker.pkg.dev
 
 ### BirdNET
 
-For the non-GPU version of the BirdNET model:
+#### Building
+
+We build the [old BirdNET model](https://github.com/kahst/BirdNET) which is built on top of theano.
+This model is deprecated, so this is only of academic interest (e.g. how does this perform relative to the modern model).
+
+```bash
+docker-compose -f docker/docker-compose.birdnet-old.yml build
+docker-compose -f docker/docker-compose.birdnet-old.yml push
+```
+
+The image for the [BirdNET analyzer model](https://github.com/kahst/BirdNET-Analyzer) is built in a similar way.
 
 ```bash
 docker-compose -f docker/docker-compose.birdnet.yml build
 docker-compose -f docker/docker-compose.birdnet.yml push
 ```
+
+See [2022-10-23-birdnet-exploration](notesbooks/2022-10-23-birdnet-exploration.ipynb) for an interactive introduction into using the docker images.

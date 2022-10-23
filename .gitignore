@@ -2,3 +2,4 @@ dist/
 node_modules/
 .terraform/
 data/
+.ipynb_checkpoints/

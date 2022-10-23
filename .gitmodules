@@ -1,3 +1,6 @@
 [submodule "users/acmiyaguchi/vendor/BirdNET"]
 	path = users/acmiyaguchi/vendor/BirdNET
 	url = git@github.com:kahst/BirdNET.git
+[submodule "users/acmiyaguchi/vendor/BirdNET-Analyzer"]
+	path = users/acmiyaguchi/vendor/BirdNET-Analyzer
+	url = git@github.com:kahst/BirdNET-Analyzer.git

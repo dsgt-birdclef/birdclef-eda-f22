@@ -25,7 +25,7 @@ repos:
     hooks:
       - id: codespell
         args: [--ignore-words=.dictionary.txt]
-        exclude: package.*.json
+        exclude: (package.*.json|.ipynb)$
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.76.0
     hooks:
