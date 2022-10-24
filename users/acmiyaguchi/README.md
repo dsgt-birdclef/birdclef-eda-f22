@@ -8,6 +8,11 @@ I am interested in exploring embeddings from previously trained models like [Bir
 [birdnet]: https://github.com/kahst/BirdNET
 [mixit]: https://bird-mixit.github.io/
 
+## Notebooks
+
+- [2022-10-23-birdnet-exploration](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-23-birdnet-exploration.ipynb)
+- [2022-10-23-birdcall-distribution](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-23-birdcall-distribution.ipynb)
+
 ## Explorations
 
 ### Data
