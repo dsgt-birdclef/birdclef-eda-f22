@@ -4,3 +4,6 @@
 [submodule "users/acmiyaguchi/vendor/BirdNET-Analyzer"]
 	path = users/acmiyaguchi/vendor/BirdNET-Analyzer
 	url = git@github.com:kahst/BirdNET-Analyzer.git
+[submodule "users/acmiyaguchi/vendor/sound-separation"]
+	path = users/acmiyaguchi/vendor/sound-separation
+	url = git@github.com:google-research/sound-separation.git
