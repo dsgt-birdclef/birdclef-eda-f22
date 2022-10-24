@@ -1,4 +1,4 @@
-# birdeclf-eda-f22
+# birdclef-eda-f22
 
 This repository is to track progress of projects done in the [BirdCLEF EDA F22
 project][proposal] with the Data Science at Georgia Tech club (DS@GT).
