@@ -61,6 +61,7 @@ We can mount our local paths into the container to run the scripts:
 docker run --rm \
     -u $(id -u):$(id -g) \
     -v ${PWD}/data:/mnt/data \
+    -e NUMBA_CACHE_DIR=/tmp \
     -it us-central1-docker.pkg.dev/birdclef-eda-f22/birdclef-eda-f22/birdnet:latest \
     analyze.py \
         --i /mnt/data/raw/birdclef-2022/train_audio/afrsil1 \
@@ -68,6 +69,8 @@ docker run --rm \
         --threads 4 \
         --rtype csv
 ```
+
+Note the `NUMBA_CACHE_DIR` to avoid librosa/numba cache issues (see [this stackoverflow post](https://stackoverflow.com/questions/59290386/runtimeerror-at-cannot-cache-function-shear-dense-no-locator-available-fo)).
 
 See [2022-10-23-birdnet-exploration](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-23-birdnet-exploration.ipynb) for an interactive introduction into using the docker images.
 
@@ -111,6 +114,21 @@ docker run --rm \
     -u $(id -u):$(id -g) \
     -v ${PWD}/data:/mnt/data \
     -it us-central1-docker.pkg.dev/birdclef-eda-f22/birdclef-eda-f22/bird-mixit:latest \
+        python scripts/mixit_ogg_wrapper.py \
+            --input /mnt/data/raw/birdclef-2022/train_audio/afrsil1/XC125458.ogg \
+            --output /mnt/data/processed/mixit/afrisil1/XC125458.ogg \
+            --model_name output_sources4 \
+            --num_sources 4
+```
+
+We can also run this GPU support.
+
+```bash
+docker run --rm \
+    --gpus=all \
+    -u $(id -u):$(id -g) \
+    -v ${PWD}/data:/mnt/data \
+    -it us-central1-docker.pkg.dev/birdclef-eda-f22/birdclef-eda-f22/bird-mixit-gpu:latest \
         python scripts/mixit_ogg_wrapper.py \
             --input /mnt/data/raw/birdclef-2022/train_audio/afrsil1/XC125458.ogg \
             --output /mnt/data/processed/mixit/afrisil1/XC125458.ogg \
