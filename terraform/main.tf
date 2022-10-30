@@ -26,3 +26,29 @@ resource "google_artifact_registry_repository" "birdclef-eda-f22" {
   format        = "DOCKER"
   depends_on    = [google_project_service.service["artifactregistry"]]
 }
+
+resource "google_storage_bucket" "birdclef-eda-f22" {
+  name     = local.project_id
+  location = "US"
+  versioning {
+    enabled = true
+  }
+  lifecycle_rule {
+    condition {
+      num_newer_versions = 3
+    }
+    action {
+      type = "Delete"
+    }
+  }
+  cors {
+    origin          = ["*"]
+    method          = ["GET"]
+    response_header = ["*"]
+    max_age_seconds = 3600
+  }
+}
+
+output "bucket_name" {
+  value = google_storage_bucket.birdclef-eda-f22.name
+}
