@@ -3,6 +3,10 @@ pandas
 matplotlib
 tensorflow
 requests
+pyarrow
+tqdm
+librosa
+simple-fast-python
 
 # development
 jupyter

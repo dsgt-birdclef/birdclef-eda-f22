@@ -79,6 +79,41 @@ Note the `NUMBA_CACHE_DIR` to avoid librosa/numba cache issues (see [this stacko
 
 See [2022-10-23-birdnet-exploration](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-23-birdnet-exploration.ipynb) for an interactive introduction into using the docker images.
 
+We put together a script to generate analysis of all of the training data, given
+that training data from the kaggle competition exists under
+`data/raw/birdclef-2022/train_audio`.
+
+```bash
+./scripts/birdnet_analyze_batch.sh
+python ./scripts/birdnet_analyze_batch_concat.py \
+    data/processed/birdnet/analysis \
+    data/raw/birdclef-2022 \
+    data/processed/birdnet/birdnet_analyze_v1.parquet
+```
+
+It turns out to be much simpler to let the docker container run as root, and
+then chown the files afterwards. There are error logs that get written to the
+code directory within the container, and permission errors can cause some
+headaches.
+
+We upload this into our storage bucket:
+
+```bash
+gsutil -m rsync -r data/processed/birdnet/analysis/ \
+    gs://birdclef-eda-f22/data/processed/birdnet/analysis/
+
+gsutil -m cp data/processed/birdnet/birdnet_analyze_v1.parquet \
+    gs://birdclef-eda-f22/data/processed/birdnet/birdnet_analyze_v1.parquet
+
+# metadata and taxonomy too
+gsutil -m cp data/raw/birdclef-2022/train_metadata.csv \
+    gs://birdclef-eda-f22/data/raw/birdclef-2022/train_metadata.csv
+gsutil -m cp data/raw/birdclef-2022/eBird_Taxonomy_v2021.csv \
+    gs://birdclef-eda-f22/data/raw/birdclef-2022/eBird_Taxonomy_v2021.csv
+```
+
+See [2022-10-30-birdnet-analyze-v1](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-30-birdnet-analyze-v1.ipynb) for a notebook that shows how to use the dataset.
+
 ### Bird MixIT
 
 #### Building
@@ -139,4 +174,18 @@ docker run --rm \
             --output /mnt/data/processed/mixit/afrisil1/XC125458.ogg \
             --model_name output_sources4 \
             --num_sources 4
+```
+
+We put together a small script that will run the mixit model against all of the
+files in a particular species directory, and additionally runs birdnet against
+all of the resulting sound separated files.
+
+```bash
+./scripts/mixit_batch.sh chukar
+python ./scripts/mixit_batch_concat.py \
+    data/processed/mixit/analysis/chukar \
+    data/raw/birdclef-2022 \
+    data/processed/mixit/chukar_v1.parquet
+
+gsutil -m rsync -r data/processed/mixit/ gs://birdclef-eda-f22/data/processed/mixit/
 ```
