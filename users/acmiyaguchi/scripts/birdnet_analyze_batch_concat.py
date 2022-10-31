@@ -11,7 +11,8 @@ def read_path(path, lookup=lambda x: x):
     df = pd.read_csv(path)
     name = path.name.split(".")[0]
     df["filename"] = f"{path.parent.name}/{name}.ogg"
-    df["birdnet_label"] = df["Common name"].apply(lookup)
+    df["birdnet_label"] = df["Common name"].apply(lambda x: lookup(x, "unknown"))
+    df["birdnet_common_name"] = df["Common name"]
     return df
 
 
@@ -49,7 +50,16 @@ def main():
             "End (s)": "end_sec",
             "Confidence": "confidence",
         }
-    )[["start_sec", "end_sec", "confidence", "birdnet_label", "filename"]]
+    )[
+        [
+            "start_sec",
+            "end_sec",
+            "confidence",
+            "birdnet_label",
+            "birdnet_common_name",
+            "filename",
+        ]
+    ]
     df.to_parquet(args.output)
 
 

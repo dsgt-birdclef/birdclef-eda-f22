@@ -182,4 +182,10 @@ all of the resulting sound separated files.
 
 ```bash
 ./scripts/mixit_batch.sh chukar
+python ./scripts/mixit_batch_concat.py \
+    data/processed/mixit/analysis/chukar \
+    data/raw/birdclef-2022 \
+    data/processed/mixit/chukar_v1.parquet
+
+gsutil -m rsync -r data/processed/mixit/ gs://birdclef-eda-f22/data/processed/mixit/
 ```
