@@ -79,6 +79,19 @@ Note the `NUMBA_CACHE_DIR` to avoid librosa/numba cache issues (see [this stacko
 
 See [2022-10-23-birdnet-exploration](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-23-birdnet-exploration.ipynb) for an interactive introduction into using the docker images.
 
+We put together a script to generate analysis of all of the training data, given
+that training data from the kaggle competition exists under
+`data/raw/birdclef-2022/train_audio`.
+
+```bash
+./scripts/birdnet_analyze_batch.sh
+```
+
+It turns out to be much simpler to let the docker container run as root, and
+then chown the files afterwards. There are error logs that get written to the
+code directory within the container, and permission errors can cause some
+headaches.
+
 ### Bird MixIT
 
 #### Building
