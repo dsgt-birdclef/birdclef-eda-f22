@@ -49,6 +49,16 @@ resource "google_storage_bucket" "birdclef-eda-f22" {
   }
 }
 
+
+resource "google_storage_bucket_iam_binding" "default-public" {
+  bucket = google_storage_bucket.birdclef-eda-f22.name
+  role   = "roles/storage.objectViewer"
+  members = [
+    "allUsers"
+  ]
+}
+
+
 output "bucket_name" {
   value = google_storage_bucket.birdclef-eda-f22.name
 }

@@ -207,6 +207,7 @@ numpy==1.23.4
     #   matplotlib
     #   opt-einsum
     #   pandas
+    #   pyarrow
     #   tensorboard
     #   tensorflow
 oauthlib==3.2.2
@@ -252,6 +253,8 @@ psutil==5.9.3
     # via ipykernel
 pure-eval==0.2.2
     # via stack-data
+pyarrow==10.0.0
+    # via -r requirements.in
 pyasn1==0.4.8
     # via
     #   pyasn1-modules

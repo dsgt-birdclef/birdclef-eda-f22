@@ -3,6 +3,8 @@ pandas
 matplotlib
 tensorflow
 requests
+pyarrow
+tqdm
 
 # development
 jupyter

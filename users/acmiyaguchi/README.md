@@ -85,12 +85,34 @@ that training data from the kaggle competition exists under
 
 ```bash
 ./scripts/birdnet_analyze_batch.sh
+python ./scripts/birdnet_analyze_batch_concat.py \
+    data/processed/birdnet/analysis \
+    data/raw/birdclef-2022 \
+    data/processed/birdnet/birdnet_analyze_v1.parquet
 ```
 
 It turns out to be much simpler to let the docker container run as root, and
 then chown the files afterwards. There are error logs that get written to the
 code directory within the container, and permission errors can cause some
 headaches.
+
+We upload this into our storage bucket:
+
+```bash
+gsutil -m rsync -r data/processed/birdnet/analysis/ \
+    gs://birdclef-eda-f22/data/processed/birdnet/analysis/
+
+gsutil -m cp data/processed/birdnet/birdnet_analyze_v1.parquet \
+    gs://birdclef-eda-f22/data/processed/birdnet/birdnet_analyze_v1.parquet
+
+# metadata and taxonomy too
+gsutil -m cp data/raw/birdclef-2022/train_metadata.csv \
+    gs://birdclef-eda-f22/data/raw/birdclef-2022/train_metadata.csv
+gsutil -m cp data/raw/birdclef-2022/eBird_Taxonomy_v2021.csv \
+    gs://birdclef-eda-f22/data/raw/birdclef-2022/eBird_Taxonomy_v2021.csv
+```
+
+See [2022-10-30-birdnet-analyze-v1](https://github.com/dsgt-birdclef/birdclef-eda-f22/tree/main/users/acmiyaguchi/notebooks/2022-10-30-birdnet-analyze-v1.ipynb) for a notebook that shows how to use the dataset.
 
 ### Bird MixIT
 
