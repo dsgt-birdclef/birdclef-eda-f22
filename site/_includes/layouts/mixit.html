@@ -1,0 +1,15 @@
+{% if mixit.files %} {% for track_id, track_sources in mixit.files %}
+<h2>{{ track_id }}</h2>
+<div>
+  {% for track_source in track_sources %}
+  <!-- audio element with the file -->
+  <h3>{{ track_source }}</h3>
+  <audio controls preload="none">
+    <source src="{{ mixit.base_url }}/{{ track_source }}" type="audio/ogg" />
+    Your browser does not support the audio element.
+  </audio>
+  <br />
+  <a href="{{ mixit.base_url }}/{{ track_source }}" target="_blank">download</a>
+  {% endfor %}
+</div>
+{% endfor %} {% endif %}
