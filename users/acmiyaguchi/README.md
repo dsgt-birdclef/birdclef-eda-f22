@@ -153,3 +153,11 @@ docker run --rm \
             --model_name output_sources4 \
             --num_sources 4
 ```
+
+We put together a small script that will run the mixit model against all of the
+files in a particular species directory, and additionally runs birdnet against
+all of the resulting sound separated files.
+
+```bash
+./scripts/mixit_batch.sh chukar
+```
