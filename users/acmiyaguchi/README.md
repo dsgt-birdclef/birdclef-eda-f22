@@ -37,6 +37,17 @@ unnecessary on Mac or Windows, so adjust the commands as appropriate. For
 simplicity, we opt to mount our data directory as a volume instead of
 individually mounting directories.
 
+### Durations
+
+It turns out that it's valuable to have the durations of the training audio in
+our metadata. The following script will generate a parquet file that we can use
+to find this information as a preprocessing step.
+
+```bash
+python scripts/train_durations.py data/raw/birdclef-2022 data/processed/train_durations.parquet
+gsutil -m cp data/processed/train_durations.parquet gs://birdclef-eda-f22/data/processed/train_durations.parquet
+```
+
 ### BirdNET
 
 #### Building
