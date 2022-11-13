@@ -13,7 +13,7 @@ Here are links to each team member's personal page.
 - [kientran](./kientran)
 - [siyingliu](./siyingliu)
 - [xinjinli](./xinjinli)
-  <<<<<<< HEAD
+<<<<<<< HEAD
 - [mgupta](./mgupta)
 
 ## Shared pages
@@ -21,5 +21,6 @@ Here are links to each team member's personal page.
 These are pages that are shared across the team. This is typically reserved for
 statically rendered pages that are perma-linked under the `shared` root.
 
-- # [[MixIT] a page demonstrating source separated audio using the MixIT model](birdclef-eda-f22/shared/mixit)
-  > > > > > > > e838fa12e560eadbbb43270cbf5cde061145314e
+- [[MixIT] a page demonstrating source separated audio using the MixIT model](birdclef-eda-f22/shared/mixit)
+=======
+>>>>>>> e838fa12e560eadbbb43270cbf5cde061145314e
