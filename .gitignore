@@ -4,8 +4,5 @@ node_modules/
 data/
 .ipynb_checkpoints/
 .DS_Store
-<<<<<<< HEAD
 venv/
 .vscode/
-=======
->>>>>>> e838fa12e560eadbbb43270cbf5cde061145314e
