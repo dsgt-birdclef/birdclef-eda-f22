@@ -1,13 +1,10 @@
-// const fetch = require("node-fetch");
+const EleventyFetch = require("@11ty/eleventy-fetch");
 
 module.exports = async () => {
+  let url =
+    "https://storage.googleapis.com/birdclef-eda-f22/data/processed/mixit/listing.json";
   try {
-    const res = await fetch(
-      "https://storage.googleapis.com/birdclef-eda-f22/data/processed/mixit/listing.json"
-    );
-    let data = await res.json();
-    console.log(data);
-
+    const data = await EleventyFetch(url, { type: "json" });
     return data;
   } catch (ex) {
     console.log(ex);
