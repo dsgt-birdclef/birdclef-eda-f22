@@ -10,6 +10,29 @@ title: DS@GT BirdCLEF EDA F22
     <title>{{ title }}</title>
   </head>
   <body>
+    <main>
     {{ content | safe }}
+    </main>
   </body>
+  <style>
+    main {
+      margin-top: 1rem;
+      padding-bottom: 3rem;
+      margin: 0 auto;
+      max-width: 992px;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu,
+        Cantarell, "Helvetica Neue", sans-serif;
+    }
+    @media (max-width: 992px) {
+      main {
+        padding: 0 0.5rem;
+      }
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap-reverse;
+    }
+  </style>
 </html>
