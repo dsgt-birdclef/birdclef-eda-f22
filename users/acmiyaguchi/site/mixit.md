@@ -1,5 +1,5 @@
 ---
 title: "rendered mixit"
 layout: "layouts/mixit.html"
-permalink: /shared/mixit
+permalink: /shared/mixit/index.html
 ---

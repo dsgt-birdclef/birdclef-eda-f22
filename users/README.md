@@ -20,4 +20,4 @@ Here are links to each team member's personal page.
 These are pages that are shared across the team. This is typically reserved for
 statically rendered pages that are perma-linked under the `shared` root.
 
-- [[MixIT] a page demonstrating source separated audio using the MixIT model](/shared/mixit)
+- [[MixIT] a page demonstrating source separated audio using the MixIT model](./shared/mixit)
